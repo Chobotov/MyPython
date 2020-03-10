@@ -7,7 +7,6 @@ def add(i):
 
 
 for i in range(1, 50):
-    cortej
     if i % 2 == 0:
         add(i)
 
