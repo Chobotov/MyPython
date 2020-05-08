@@ -25,7 +25,7 @@ def main():
     conditions = data['weather'][0]['description']
     temp = data['main']['temp']
     temp_min = data['main']['temp_min']
-    temp_max =  data['main']['temp_max']
+    temp_max = data['main']['temp_max']
     return render_template('main.html', conditions=conditions, temp=temp, temp_min=temp_min, temp_max=temp_max,
                            messages=Message.query.all())
 
