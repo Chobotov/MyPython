@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <a href="{{ url_for('logout') }}">Logout</a></td>
+    <title>Личная страница</title>
+</head>
+<body>
+<div>
+    <h2>Погода в Тамбове</h2>
+     <table>
+        <tr>
+            <td>Текущее состояние погоды</td>
+            <td>{{ conditions }}</td>
+        </tr>
+        <tr>
+            <td>Температура</td>
+            <td>{{ temp }} °С</td>
+        </tr>
+        <tr>
+            <td>Самая низкая температура за сегодня</td>
+            <td>{{ temp_min }} °С</td>
+        </tr>
+         <tr>
+            <td>Самая высокая температура за сегодня</td>
+            <td>{{ temp_max }} °С</td>
+        </tr>
+    </table>
+</div>
+<center>
+<h1>Личная страница</h1>
+<form method="post" action="/add_message">
+    <input type="text" name="text">
+    <input type="text" name="tag">
+    <button type="submit">Написать сообщение</button>
+</form>
+
+<h3>Список сообщений</h3>
+{% for message in messages %}
+    <div>{{ message.text }}&nbsp;
+        {% for tag in message.tags %}
+        <b>#{{ tag.text }}</b>
+        {% endfor %}
+    </div>
+{% endfor %}
+</center>
+</body>
+</html>
